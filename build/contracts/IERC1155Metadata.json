@@ -1,0 +1,494 @@
+{
+  "contractName": "IERC1155Metadata",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "_uri",
+          "type": "string"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "URI",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "uri",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"_uri\",\"type\":\"string\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"URI\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_id\",\"type\":\"uint256\"}],\"name\":\"uri\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"uri(uint256)\":{\"details\":\"URIs are defined in RFC 3986.      URIs are assumed to be deterministically generated based on token ID      Token IDs are assumed to be represented in their hex format in URIs\",\"returns\":{\"_0\":\"URI string\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"uri(uint256)\":{\"notice\":\"A distinct Uniform Resource Identifier (URI) for a given token.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"@0xsequence/erc-1155/contracts/interfaces/IERC1155Metadata.sol\":\"IERC1155Metadata\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@0xsequence/erc-1155/contracts/interfaces/IERC1155Metadata.sol\":{\"keccak256\":\"0x0136d7e3a91fb70c0b2c63b2950110bec0993d9c8c707155543b253a8705cbb1\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://ee8d9c7d15f8f0137e1d4e2430167c9e609a781c0cb2075bbebe16c5f3efeb55\",\"dweb:/ipfs/QmWPcA2FFoKf49vbJaKuHgAaB4T6pCrEYWPaZM8etyUXc5\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: Apache-2.0\npragma solidity 0.7.4;\n\n\ninterface IERC1155Metadata {\n\n  event URI(string _uri, uint256 indexed _id);\n\n  /****************************************|\n  |                Functions               |\n  |_______________________________________*/\n\n  /**\n   * @notice A distinct Uniform Resource Identifier (URI) for a given token.\n   * @dev URIs are defined in RFC 3986.\n   *      URIs are assumed to be deterministically generated based on token ID\n   *      Token IDs are assumed to be represented in their hex format in URIs\n   * @return URI string\n   */\n  function uri(uint256 _id) external view returns (string memory);\n}\n",
+  "sourcePath": "@0xsequence/erc-1155/contracts/interfaces/IERC1155Metadata.sol",
+  "ast": {
+    "absolutePath": "@0xsequence/erc-1155/contracts/interfaces/IERC1155Metadata.sol",
+    "exportedSymbols": {
+      "IERC1155Metadata": [
+        130
+      ]
+    },
+    "id": 131,
+    "license": "Apache-2.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 115,
+        "literals": [
+          "solidity",
+          "0.7",
+          ".4"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:22:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 130,
+        "linearizedBaseContracts": [
+          130
+        ],
+        "name": "IERC1155Metadata",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "id": 121,
+            "name": "URI",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 120,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 117,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "_uri",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 121,
+                  "src": "106:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 116,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "106:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 119,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 121,
+                  "src": "119:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 118,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "119:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "105:34:1"
+            },
+            "src": "96:44:1"
+          },
+          {
+            "documentation": {
+              "id": 122,
+              "nodeType": "StructuredDocumentation",
+              "src": "280:307:1",
+              "text": " @notice A distinct Uniform Resource Identifier (URI) for a given token.\n @dev URIs are defined in RFC 3986.\n      URIs are assumed to be deterministically generated based on token ID\n      Token IDs are assumed to be represented in their hex format in URIs\n @return URI string"
+            },
+            "functionSelector": "0e89341c",
+            "id": 129,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "uri",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 125,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 124,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 129,
+                  "src": "603:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 123,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "603:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "602:13:1"
+            },
+            "returnParameters": {
+              "id": 128,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 127,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 129,
+                  "src": "639:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 126,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "639:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "638:15:1"
+            },
+            "scope": 130,
+            "src": "590:64:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 131,
+        "src": "64:592:1"
+      }
+    ],
+    "src": "39:618:1"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "@0xsequence/erc-1155/contracts/interfaces/IERC1155Metadata.sol",
+      "exportedSymbols": {
+        "IERC1155Metadata": [
+          130
+        ]
+      },
+      "license": "Apache-2.0"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.7",
+            ".4"
+          ]
+        },
+        "id": 115,
+        "name": "PragmaDirective",
+        "src": "39:22:1"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            130
+          ],
+          "name": "IERC1155Metadata",
+          "scope": 131
+        },
+        "children": [
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "URI"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "_uri",
+                      "scope": 121,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 116,
+                        "name": "ElementaryTypeName",
+                        "src": "106:6:1"
+                      }
+                    ],
+                    "id": 117,
+                    "name": "VariableDeclaration",
+                    "src": "106:11:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "_id",
+                      "scope": 121,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 118,
+                        "name": "ElementaryTypeName",
+                        "src": "119:7:1"
+                      }
+                    ],
+                    "id": 119,
+                    "name": "VariableDeclaration",
+                    "src": "119:19:1"
+                  }
+                ],
+                "id": 120,
+                "name": "ParameterList",
+                "src": "105:34:1"
+              }
+            ],
+            "id": 121,
+            "name": "EventDefinition",
+            "src": "96:44:1"
+          },
+          {
+            "attributes": {
+              "functionSelector": "0e89341c",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "uri",
+              "scope": 130,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @notice A distinct Uniform Resource Identifier (URI) for a given token.\n @dev URIs are defined in RFC 3986.\n      URIs are assumed to be deterministically generated based on token ID\n      Token IDs are assumed to be represented in their hex format in URIs\n @return URI string"
+                },
+                "id": 122,
+                "name": "StructuredDocumentation",
+                "src": "280:307:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_id",
+                      "scope": 129,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 123,
+                        "name": "ElementaryTypeName",
+                        "src": "603:7:1"
+                      }
+                    ],
+                    "id": 124,
+                    "name": "VariableDeclaration",
+                    "src": "603:11:1"
+                  }
+                ],
+                "id": 125,
+                "name": "ParameterList",
+                "src": "602:13:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 129,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 126,
+                        "name": "ElementaryTypeName",
+                        "src": "639:6:1"
+                      }
+                    ],
+                    "id": 127,
+                    "name": "VariableDeclaration",
+                    "src": "639:13:1"
+                  }
+                ],
+                "id": 128,
+                "name": "ParameterList",
+                "src": "638:15:1"
+              }
+            ],
+            "id": 129,
+            "name": "FunctionDefinition",
+            "src": "590:64:1"
+          }
+        ],
+        "id": 130,
+        "name": "ContractDefinition",
+        "src": "64:592:1"
+      }
+    ],
+    "id": 131,
+    "name": "SourceUnit",
+    "src": "39:618:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.4+commit.3f05b770.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2022-12-28T05:05:47.996Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "uri(uint256)": {
+        "details": "URIs are defined in RFC 3986.      URIs are assumed to be deterministically generated based on token ID      Token IDs are assumed to be represented in their hex format in URIs",
+        "returns": {
+          "_0": "URI string"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "uri(uint256)": {
+        "notice": "A distinct Uniform Resource Identifier (URI) for a given token."
+      }
+    },
+    "version": 1
+  }
+}

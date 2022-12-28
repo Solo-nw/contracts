@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@0xsequence/erc-1155": "^3.2.4"
+  }
+}

@@ -1,4 +1,4 @@
-module github.com/solo-nw/contracts/build/go/artist_contract
+module github.com/solo-nw/contracts
 
 go 1.18
 

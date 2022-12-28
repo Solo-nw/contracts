@@ -1,0 +1,715 @@
+[
+{
+    "inputs": [
+    {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+    },
+    {
+        "internalType": "string",
+        "name": "_baseURI",
+        "type": "string"
+    },
+    {
+        "internalType": "address",
+        "name": "_artistAddr",
+        "type": "address"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_royaltyBasisPoints",
+        "type": "uint256"
+    },
+    {
+        "internalType": "address",
+        "name": "_currency",
+        "type": "address"
+    }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+},
+{
+    "anonymous": false,
+    "inputs": [
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+    },
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
+    },
+    {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "_approved",
+        "type": "bool"
+    }
+    ],
+    "name": "ApprovalForAll",
+    "type": "event"
+},
+{
+    "anonymous": false,
+    "inputs": [
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+    },
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+    }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+},
+{
+    "anonymous": false,
+    "inputs": [
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
+    },
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+    },
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+    },
+    {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "_ids",
+        "type": "uint256[]"
+    },
+    {
+        "indexed": false,
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
+    }
+    ],
+    "name": "TransferBatch",
+    "type": "event"
+},
+{
+    "anonymous": false,
+    "inputs": [
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
+    },
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+    },
+    {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+    },
+    {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    },
+    {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+    }
+    ],
+    "name": "TransferSingle",
+    "type": "event"
+},
+{
+    "anonymous": false,
+    "inputs": [
+    {
+        "indexed": false,
+        "internalType": "string",
+        "name": "_uri",
+        "type": "string"
+    },
+    {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    }
+    ],
+    "name": "URI",
+    "type": "event"
+},
+{
+    "stateMutability": "nonpayable",
+    "type": "fallback"
+},
+{
+    "inputs": [
+    {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+    {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "address[]",
+        "name": "_owners",
+        "type": "address[]"
+    },
+    {
+        "internalType": "uint256[]",
+        "name": "_ids",
+        "type": "uint256[]"
+    }
+    ],
+    "name": "balanceOfBatch",
+    "outputs": [
+    {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [],
+    "name": "baseURI",
+    "outputs": [
+    {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [],
+    "name": "getCreator",
+    "outputs": [
+    {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [],
+    "name": "getOwner",
+    "outputs": [
+    {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [],
+    "name": "globalRoyaltyInfo",
+    "outputs": [
+    {
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+    },
+    {
+        "internalType": "uint256",
+        "name": "feeBasisPoints",
+        "type": "uint256"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "address",
+        "name": "_owner",
+        "type": "address"
+    },
+    {
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
+    }
+    ],
+    "name": "isApprovedForAll",
+    "outputs": [
+    {
+        "internalType": "bool",
+        "name": "isOperator",
+        "type": "bool"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+    {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_saleCost",
+        "type": "uint256"
+    }
+    ],
+    "name": "royaltyInfo",
+    "outputs": [
+    {
+        "internalType": "address",
+        "name": "receiver",
+        "type": "address"
+    },
+    {
+        "internalType": "uint256",
+        "name": "royaltyAmount",
+        "type": "uint256"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+    },
+    {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+    },
+    {
+        "internalType": "uint256[]",
+        "name": "_ids",
+        "type": "uint256[]"
+    },
+    {
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
+    },
+    {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+    }
+    ],
+    "name": "safeBatchTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+    },
+    {
+        "internalType": "address",
+        "name": "_to",
+        "type": "address"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+    },
+    {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+    }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "address",
+        "name": "_operator",
+        "type": "address"
+    },
+    {
+        "internalType": "bool",
+        "name": "_approved",
+        "type": "bool"
+    }
+    ],
+    "name": "setApprovalForAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    }
+    ],
+    "name": "uri",
+    "outputs": [
+    {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "string",
+        "name": "_newuri",
+        "type": "string"
+    }
+    ],
+    "name": "setBaseURI",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "string",
+        "name": "_newName",
+        "type": "string"
+    }
+    ],
+    "name": "setContractName",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "address",
+        "name": "_newOwner",
+        "type": "address"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_royaltyBasisPoints",
+        "type": "uint256"
+    }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    }
+    ],
+    "name": "getTokenPrice",
+    "outputs": [
+    {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [],
+    "name": "getCurrency",
+    "outputs": [
+    {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "address",
+        "name": "_currency",
+        "type": "address"
+    }
+    ],
+    "name": "setCurrency",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [],
+    "name": "currenctyBalance",
+    "outputs": [
+    {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_price",
+        "type": "uint256"
+    }
+    ],
+    "name": "setPrice",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+    },
+    {
+        "internalType": "bytes",
+        "name": "_data",
+        "type": "bytes"
+    }
+    ],
+    "name": "buy",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256",
+        "name": "_royaltyBasisPoints",
+        "type": "uint256"
+    }
+    ],
+    "name": "setGlobalRoyaltyInfo",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+    },
+    {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    },
+    {
+        "internalType": "uint256",
+        "name": "price",
+        "type": "uint256"
+    },
+    {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+    }
+    ],
+    "name": "mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256[]",
+        "name": "ids",
+        "type": "uint256[]"
+    },
+    {
+        "internalType": "uint256[]",
+        "name": "amounts",
+        "type": "uint256[]"
+    },
+    {
+        "internalType": "uint256[]",
+        "name": "prices",
+        "type": "uint256[]"
+    },
+    {
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+    }
+    ],
+    "name": "mintBatch",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256",
+        "name": "_id",
+        "type": "uint256"
+    },
+    {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+    }
+    ],
+    "name": "burn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "uint256[]",
+        "name": "_ids",
+        "type": "uint256[]"
+    },
+    {
+        "internalType": "uint256[]",
+        "name": "_amounts",
+        "type": "uint256[]"
+    }
+    ],
+    "name": "batchBurn",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+},
+{
+    "inputs": [
+    {
+        "internalType": "bytes4",
+        "name": "_interfaceID",
+        "type": "bytes4"
+    }
+    ],
+    "name": "supportsInterface",
+    "outputs": [
+    {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }
+    ],
+    "stateMutability": "pure",
+    "type": "function"
+}
+]

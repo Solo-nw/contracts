@@ -2,4 +2,5 @@
 build:
 	@echo "Building..."
 	@truffle compile
-	@abigen --abi=build/contracts/ArtistCollection.abi --pkg=contracts --out=artist_collection.go
+	@python gen_script.py
+	@abigen --abi=build/contracts/ArtistCollection.abi --pkg=contracts --out=artist_collection.go --bin=build/contracts/ArtistCollection.bin

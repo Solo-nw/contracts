@@ -9,7 +9,12 @@ contract Deployer is Ownable {
 
     constructor () Ownable(msg.sender, msg.sender) {}
 
-    function deploy(string memory _collectionName, string memory _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) external onlyCreator {
+    modifier isNotDeployed(address _artistAddr) {
+        require(address(artistOwnerMap[_artistAddr])==address(0), "Artist Collection already deployed");
+        _;
+    }
+
+    function deploy(string memory _collectionName, string memory _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) external onlyCreator isNotDeployed(_artistAddr){
         ArtistCollection _a = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
         artistOwnerMap[_artistAddr] = _a;
     }

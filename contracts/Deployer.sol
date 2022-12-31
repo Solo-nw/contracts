@@ -14,11 +14,25 @@ contract Deployer is Ownable {
         _;
     }
 
-    function deploy(string memory _collectionName, string memory _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) external onlyCreator isNotDeployed(_artistAddr){
+    function deploy(string memory _collectionName, string memory _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) external isNotDeployed(_artistAddr){
         ArtistCollection _a = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
         artistOwnerMap[_artistAddr] = _a;
     }
 
+    // ONLY USED TO REPLACE OLD CONTRACTS
+    function forceDeploy(string memory _collectionName, string memory _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) external onlyCreator{
+        ArtistCollection _a = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
+        artistOwnerMap[_artistAddr] = _a;
+    }
+
+    function getAllCollection(address[] memory _artistAddrs) external view returns(address[] memory) {
+        address[] memory artistCollectionAddrs;
+        for (uint i = 0; i < _artistAddrs.length; i++) {
+            artistCollectionAddrs[i] = address(artistOwnerMap[_artistAddrs[i]]);
+        }
+        return artistCollectionAddrs;
+    }
+    
     function getArtistCollection(address _artistAddr) external view returns(address) {
         return address(artistOwnerMap[_artistAddr]);
     }

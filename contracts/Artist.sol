@@ -16,6 +16,7 @@ contract ArtistCollection is ERC1155MintBurn, ERC1155Metadata, ERC2981Global, Ow
     |__________________________________*/
     IERC20 internal currency;
     mapping(uint256 => uint256) internal tokenPrices; // Stores the Price
+    uint256 internal currTokenID;
     /***********************************|
     |             Constuctor            |
     |__________________________________*/
@@ -25,6 +26,7 @@ contract ArtistCollection is ERC1155MintBurn, ERC1155Metadata, ERC2981Global, Ow
                 {
                     _setGlobalRoyaltyInfo(_artistAddr, _royaltyBasisPoints);
                     currency = IERC20(_currency);
+                    currTokenID = 0;
                 }
 
     /***********************************|
@@ -115,6 +117,9 @@ contract ArtistCollection is ERC1155MintBurn, ERC1155Metadata, ERC2981Global, Ow
     {
         _mint(owner, id, amount, data);
         tokenPrices[id] = price;
+        if (currTokenID<id){
+            currTokenID = id;
+        }
     }
 
     function mintBatch(uint256[] memory ids, uint256[] memory amounts, uint256[] memory prices, bytes memory data)
@@ -124,9 +129,16 @@ contract ArtistCollection is ERC1155MintBurn, ERC1155Metadata, ERC2981Global, Ow
         _batchMint(owner, ids, amounts, data);
         uint i=0;
         for (i = 0; i < ids.length; i++) {
+            if (currTokenID<ids[i]){
+                currTokenID=ids[i];
+            }
             tokenPrices[ids[i]] = prices[i];
         }
     }   
+
+    function getNextTokenID() external view returns(uint256) {
+        return currTokenID+1;
+    }
 
     /***********************************|
     |          Burning Functions        |

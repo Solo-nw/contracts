@@ -23,12 +23,11 @@ contract Deployer is OwnableSimple {
         return address(artistOwnerMap[_artistAddr]);
     }
 
-    // function setBaseURIBatch(address[] memory _artistAddrs, string[] calldata _baseURIs) external onlyOwner {
-    //     require(_artistAddrs.length == _baseURIs.length, "Array lengths must match");
-    //     for (uint i = 0; i < _artistAddrs.length; i++) {
-    //         artistOwnerMap[_artistAddrs[i]].setBaseURI(_baseURIs[i]);
-    //     }
-    // }
+    function setBaseURIBatch(address[] memory _artistAddrs, string memory _baseURI) external onlyOwner {
+        for (uint i = 0; i < _artistAddrs.length; i++) {
+            artistOwnerMap[_artistAddrs[i]].setBaseURI(string(abi.encodePacked(_baseURI, _artistAddrs[i])));
+        }
+    }
 
     function setCurrencyBatch(address[] memory _artistAddrs, address[] memory _currencies) external onlyOwner {
         require(_artistAddrs.length == _currencies.length, "Array lengths must match");

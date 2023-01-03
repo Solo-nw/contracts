@@ -16,7 +16,8 @@ contract Deployer is OwnableSimple {
     }
 
     function deploy(string memory _collectionName, string memory _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) external isNotDeployed(_artistAddr){
-        artistOwnerMap[_artistAddr] = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
+        ArtistCollection _a = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
+        artistOwnerMap[_artistAddr] = _a;
     }
 
     function getCollection(address _artistAddr) external view returns(address) {

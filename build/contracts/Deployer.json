@@ -36,7 +36,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -49,7 +50,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -134,7 +136,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -153,7 +156,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.7.4+commit.3f05b770\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_collectionName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_baseURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_artistAddr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_royaltyBasisPoints\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_currency\",\"type\":\"address\"}],\"name\":\"deploy\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_collectionName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_baseURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_artistAddr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_royaltyBasisPoints\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_currency\",\"type\":\"address\"}],\"name\":\"forceDeploy\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_artistAddrs\",\"type\":\"address[]\"}],\"name\":\"getAllCollection\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_artistAddr\",\"type\":\"address\"}],\"name\":\"getArtistCollection\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCreator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Deployer.sol\":\"Deployer\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@0xsequence/erc-1155/contracts/interfaces/IERC1155.sol\":{\"keccak256\":\"0xa610d2fc917b602472a2c3292812ed0231f41830cb04f0fb9605c4a8790a6d9b\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://11c80d896a6424dea7e063e2893b5c25f6d81af2631eed883dae1d3e932a9b9e\",\"dweb:/ipfs/Qmf9g7dXUX1yLidz1aKbCMzYHqJPh4rnCQ85B1tMbtdfNF\"]},\"@0xsequence/erc-1155/contracts/interfaces/IERC1155Metadata.sol\":{\"keccak256\":\"0x0136d7e3a91fb70c0b2c63b2950110bec0993d9c8c707155543b253a8705cbb1\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://ee8d9c7d15f8f0137e1d4e2430167c9e609a781c0cb2075bbebe16c5f3efeb55\",\"dweb:/ipfs/QmWPcA2FFoKf49vbJaKuHgAaB4T6pCrEYWPaZM8etyUXc5\"]},\"@0xsequence/erc-1155/contracts/interfaces/IERC1155TokenReceiver.sol\":{\"keccak256\":\"0x46528ddd8edfda8ae713443871c56f25d06270e2ea49cdbd575122ea21d279b7\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://c0ab85ee29d0ed85bf4807955e560055857c8de9ecb60e54171da2bdf3b0b57b\",\"dweb:/ipfs/QmcXCYTT8eYtc7t15UmvcGw5LhNsh7ohPbkfKj8auWvtgx\"]},\"@0xsequence/erc-1155/contracts/interfaces/IERC165.sol\":{\"keccak256\":\"0xe2617e5ea379e2cc4a2ce6cd8e05208a0509d5d5c92b00c329745c8f1d4d9dc6\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://60f609155f93818b742bd942b14df29b4ae777042274cf7144f5629dc31a5fac\",\"dweb:/ipfs/QmT4wz42k59BQktnQ9Vz6ftGSXxvfhQGbq2WSKoh2WWSWY\"]},\"@0xsequence/erc-1155/contracts/interfaces/IERC2981.sol\":{\"keccak256\":\"0xc043b3a54f1667de06c5d09d999fc82cdfb2c25155594798527f652fa11cf141\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://d1dc6c610fc0c4d664255b556abb214ce224c569ceeaa514ad992ef77fc3f61a\",\"dweb:/ipfs/QmUtiGAiC8zvgbwu8wtFhAdQJv8YKkggv3J2QA2SGNGKxu\"]},\"@0xsequence/erc-1155/contracts/tokens/ERC1155/ERC1155.sol\":{\"keccak256\":\"0x7ac79305318d1e82ccca05d89167dc7ae0d0a0736ef232c5e9477c7fb1901e63\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://57527e7d5aa4434cc3f72e390e642e876c960c1e6ba33b63d01e30f64d69210f\",\"dweb:/ipfs/QmacUaCt7byKobDckpxfY7XqjGKyktMvrj6DKYgdJA6Lcw\"]},\"@0xsequence/erc-1155/contracts/tokens/ERC1155/ERC1155Metadata.sol\":{\"keccak256\":\"0x07ac2d54ea1ed1e11eda9e680fabfec2ef29402c0468ad0d97c2b211bd9759cd\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://6ff12e8f0dc43b269c6de1ebe2d638b062a685f407eba9e503f253d1ae67267b\",\"dweb:/ipfs/QmSZAj8otcjAuHM7i4evXPAqABzdecR2VHCpaTzJFtPdYk\"]},\"@0xsequence/erc-1155/contracts/tokens/ERC1155/ERC1155MintBurn.sol\":{\"keccak256\":\"0x111941661352f4ce017c4ba1729af79452bdee8a4ff4e0b54a88590544243aed\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://cf2527aa8f02bf280dc47d7bc886542307f23ce754ecfd8e3f3fdc30c0280ccb\",\"dweb:/ipfs/QmVR7GasmAnWzzhnKpW7z3eBfm7LUx7vrpgmXdkUcPqM4E\"]},\"@0xsequence/erc-1155/contracts/tokens/ERC2981/ERC2981Global.sol\":{\"keccak256\":\"0xa71c98ab236e7f300326b0ccc67dd2d283ef021f4a8505a69ffc1afa33c7731f\",\"license\":\"Apache-2.0\",\"urls\":[\"bzz-raw://b8de576b957c86902987948dd720f3313a6ae56663c78e1f26475c52e09813da\",\"dweb:/ipfs/QmdxUUf9PStK4Eotz7eoKbaWKJk8knQf1mqVqcya6vXgkz\"]},\"@0xsequence/erc-1155/contracts/utils/Address.sol\":{\"keccak256\":\"0x8bb1c56edfeb70c168826f21d3a7f6fb392a051c435e0d6c201192e2bc66adf3\",\"urls\":[\"bzz-raw://89026145aece6da55ef3d23f47278fd0e0c79a8acb2e43c12774dcf0b82419d7\",\"dweb:/ipfs/QmXrwqHkaXsibssvV38ME7qJSgZtLcZbZEFvPX8roHFgd5\"]},\"@0xsequence/erc-1155/contracts/utils/ERC165.sol\":{\"keccak256\":\"0x4bc1304b7929df26b14dc93be9b873ec7237d471c94687c8f3983b61f8a1a966\",\"urls\":[\"bzz-raw://560ddf61c099531acfaa9516d7e74dabf6233f646f5040e3ba018a7b1c676bb3\",\"dweb:/ipfs/QmXrmo9HhW1znyXeuyb84QWjnsCzEcaDHJWSxm5Vc6mFzb\"]},\"@0xsequence/erc-1155/contracts/utils/SafeMath.sol\":{\"keccak256\":\"0xaf1d9662825e69afa9bef8411c409e1b05bf2de080008aa1e239227887c4b6bb\",\"urls\":[\"bzz-raw://edf9448c82ef5cc43e29653777ea282df9e01625884aa9b7ef1a9be6d0997f5c\",\"dweb:/ipfs/Qmckq4JV3oB61fWz2QeC924q2rex4Cs5vfSVLakUP5btMq\"]},\"project:/contracts/Artist.sol\":{\"keccak256\":\"0x31ed8732e9e2e884cca0934e7c0b9547e1e1ed9f91c1c24d4e8aa330801a0feb\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://0727b73116f8e4986f6d11dcb7c7f2ba36b3f707571090d4b2c1016086bf4927\",\"dweb:/ipfs/QmehHSovSsApQL8wrGnYWwo1BdLcBbqMrjUcRjrg9GxbTr\"]},\"project:/contracts/Deployer.sol\":{\"keccak256\":\"0xf87ea1459fe243a43693770726c335e74341217f350dbd885ad415a477117245\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://826ae8994f655d336170f8ee1445ea54bbf128f6506503d51da0fa6a8061a8fd\",\"dweb:/ipfs/QmZMSy1KXHSo38m3tKKKNwRiNQCbJ8iqSfnag43ktXse4a\"]},\"project:/contracts/utils/IERC20.sol\":{\"keccak256\":\"0x4a0ff164b5a42183eaaf1e94f114fe26f025b183589fafc520ff1b48cf58223e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bbb5e4c6f9fc789858fbad3d812d8e474fea23d3cda760ca8700cda399ec554d\",\"dweb:/ipfs/QmSUmaeXjbMQ1g5D2r5zjN4RFbTBeCyxBxnF8QQGZUJBkB\"]},\"project:/contracts/utils/Ownable.sol\":{\"keccak256\":\"0x22dbe29b7fd71a34f778ba6faf54bcced9317e7fb9561bc5e3db26d054963f33\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://fcc7e17a803e368109a5d262af36518e30c5eead12cdf56759f4cf24f65473f2\",\"dweb:/ipfs/QmWakNisPSXkuSJREf8Fy3m232wd83xJJBwHwp6nhWR5HV\"]}},\"version\":1}",
@@ -4451,9 +4455,17 @@
     "name": "solc",
     "version": "0.7.4+commit.3f05b770.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "80001": {
+      "events": {},
+      "links": {},
+      "address": "0x2297Dd62b151bC85738156e9D0606Bb0f9EbB559",
+      "transactionHash": "0x9cf240680e11ced746d136b8cda4276e8c302c16cfa88e318888af67db3d0435"
+    }
+  },
   "schemaVersion": "3.4.11",
-  "updatedAt": "2022-12-31T09:03:22.320Z",
+  "updatedAt": "2023-01-03T09:28:14.324Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

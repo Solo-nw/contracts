@@ -41,6 +41,11 @@
  * https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard/
  */
 
+require('dotenv').config();
+const { MNEMONIC, PROJECT_ID, API_KEY } = process.env;
+
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+
 // require('dotenv').config();
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
@@ -70,6 +75,13 @@ module.exports = {
     //  network_id: "*",       // Any network (default: none)
     // },
     //
+    mumbai: {
+      provider: () => new HDWalletProvider(MNEMONIC, `https://matic-mumbai.chainstacklabs.com`),
+      network_id: 80001,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    }
     // An additional network, but with some advanced options…
     // advanced: {
     //   port: 8777,             // Custom port
@@ -116,7 +128,11 @@ module.exports = {
       //  evmVersion: "byzantium"
       // }
     }
-  }
+  },
+  plugins: ['truffle-plugin-verify'],
+  api_keys: {
+    polygonscan: API_KEY,
+  },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:
   // false to enabled: true. The default storage location can also be

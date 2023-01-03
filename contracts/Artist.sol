@@ -65,11 +65,11 @@ contract ArtistCollection is ERC1155MintBurn, ERC1155Metadata, ERC2981Global, Ow
         return address(currency);
     }
 
-    function setCurrency(address _currency) external onlyOwner {
+    function setCurrency(address _currency) external onlyOwnerOrCreator {
         currency = IERC20(_currency);
     }
     
-    function currenctyBalance() external view returns(uint256){
+    function currencyBalance() external view returns(uint256){
         return currency.balanceOf(msg.sender);
     }
 
@@ -77,6 +77,14 @@ contract ArtistCollection is ERC1155MintBurn, ERC1155Metadata, ERC2981Global, Ow
     function setPrice(uint256 _id, uint256 _price) external onlyOwner {
         tokenPrices[_id] = _price;
     }
+
+    function setPriceBatch(uint256[] memory _ids, uint256[] memory _prices) external onlyOwner {
+        require(_ids.length == _prices.length, "Lengths of arrays must match");
+        for(uint256 i = 0; i < _ids.length; i++) {
+            tokenPrices[_ids[i]] = _prices[i];
+        }
+    }
+
     /***********************************|
     |         Market Functions          |
     |__________________________________*/

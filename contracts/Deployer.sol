@@ -1,28 +1,22 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.4;
+pragma experimental ABIEncoderV2;
 
 import "./Artist.sol";
-import "./utils/Ownable.sol";
+import "./utils/OwnableSimple.sol";
 
-contract Deployer is Ownable {
+contract Deployer is OwnableSimple {
     mapping(address => ArtistCollection) internal artistOwnerMap;
 
-    constructor () Ownable(msg.sender, msg.sender) {}
+    constructor () OwnableSimple(msg.sender) {}
 
     modifier isNotDeployed(address _artistAddr) {
-        require(address(artistOwnerMap[_artistAddr])==address(0), "Artist Collection already deployed");
+        require(address(artistOwnerMap[_artistAddr])==address(0) || msg.sender == owner, "Artist Collection already deployed");
         _;
     }
 
     function deploy(string memory _collectionName, string memory _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) external isNotDeployed(_artistAddr){
-        ArtistCollection _a = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
-        artistOwnerMap[_artistAddr] = _a;
-    }
-
-    // ONLY USED TO REPLACE OLD CONTRACTS
-    function forceDeploy(string memory _collectionName, string memory _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) external onlyCreator{
-        ArtistCollection _a = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
-        artistOwnerMap[_artistAddr] = _a;
+        artistOwnerMap[_artistAddr] = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
     }
 
     function getAllCollection(address[] memory _artistAddrs) external view returns(address[] memory) {
@@ -32,8 +26,18 @@ contract Deployer is Ownable {
         }
         return artistCollectionAddrs;
     }
-    
-    function getArtistCollection(address _artistAddr) external view returns(address) {
-        return address(artistOwnerMap[_artistAddr]);
+
+    function setBaseURIBatch(address[] memory _artistAddrs, string[] memory _baseURIs) external onlyOwner {
+        require(_artistAddrs.length == _baseURIs.length, "Array lengths must match");
+        for (uint i = 0; i < _artistAddrs.length; i++) {
+            artistOwnerMap[_artistAddrs[i]].setBaseURI(_baseURIs[i]);
+        }
+    }
+
+    function setCurrencyBatch(address[] memory _artistAddrs, address[] memory _currencies) external onlyOwner {
+        require(_artistAddrs.length == _currencies.length, "Array lengths must match");
+        for (uint i = 0; i < _artistAddrs.length; i++) {
+            artistOwnerMap[_artistAddrs[i]].setCurrency(_currencies[i]);
+        }
     }
 }

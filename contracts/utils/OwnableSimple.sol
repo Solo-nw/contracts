@@ -3,30 +3,18 @@ pragma solidity ^0.7.4;
 
 
 
-contract Ownable {
+contract OwnableSimple {
   address internal owner;
-  address internal creator;
 
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
-  constructor (address _creator, address _firstOwner) {
+  constructor (address _firstOwner) {
     owner = _firstOwner;
-    creator = _creator;
     emit OwnershipTransferred(address(0), _firstOwner);
   }
 
   modifier onlyOwner() {
     require(msg.sender == owner, "Ownable#onlyOwner: SENDER_IS_NOT_OWNER");
-    _;
-  }
-
-  modifier onlyCreator() {
-    require(msg.sender == creator, "Ownable#onlyCreator: SENDER_IS_NOT_CREATOR");
-    _;
-  }
-
-  modifier onlyOwnerOrCreator() {
-    require(msg.sender == owner || msg.sender == creator, "Ownable#onlyOwnerOrCreator: SENDER_IS_NOT_OWNER_OR_CREATOR");
     _;
   }
 
@@ -39,9 +27,4 @@ contract Ownable {
   function getOwner() public view returns (address) {
     return owner;
   }
-
-  function getCreator() public view returns (address) {
-    return creator;
-  }  
-
 }

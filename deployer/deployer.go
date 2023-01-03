@@ -30,7 +30,7 @@ var (
 
 // DeployerMetaData contains all meta data concerning the Deployer contract.
 var DeployerMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getCreator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_collectionName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_baseURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_artistAddr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_royaltyBasisPoints\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_currency\",\"type\":\"address\"}],\"name\":\"deploy\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_collectionName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_baseURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_artistAddr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_royaltyBasisPoints\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_currency\",\"type\":\"address\"}],\"name\":\"forceDeploy\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_artistAddrs\",\"type\":\"address[]\"}],\"name\":\"getAllCollection\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_artistAddr\",\"type\":\"address\"}],\"name\":\"getArtistCollection\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}]",
+	ABI: "[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_collectionName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_baseURI\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_artistAddr\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_royaltyBasisPoints\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"_currency\",\"type\":\"address\"}],\"name\":\"deploy\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_artistAddrs\",\"type\":\"address[]\"}],\"name\":\"getAllCollection\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_artistAddrs\",\"type\":\"address[]\"},{\"internalType\":\"string[]\",\"name\":\"_baseURIs\",\"type\":\"string[]\"}],\"name\":\"setBaseURIBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_artistAddrs\",\"type\":\"address[]\"},{\"internalType\":\"address[]\",\"name\":\"_currencies\",\"type\":\"address[]\"}],\"name\":\"setCurrencyBatch\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // DeployerABI is the input ABI used to generate the binding from.
@@ -210,68 +210,6 @@ func (_Deployer *DeployerCallerSession) GetAllCollection(_artistAddrs []common.A
 	return _Deployer.Contract.GetAllCollection(&_Deployer.CallOpts, _artistAddrs)
 }
 
-// GetArtistCollection is a free data retrieval call binding the contract method 0xc11c065c.
-//
-// Solidity: function getArtistCollection(address _artistAddr) view returns(address)
-func (_Deployer *DeployerCaller) GetArtistCollection(opts *bind.CallOpts, _artistAddr common.Address) (common.Address, error) {
-	var out []interface{}
-	err := _Deployer.contract.Call(opts, &out, "getArtistCollection", _artistAddr)
-
-	if err != nil {
-		return *new(common.Address), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
-
-	return out0, err
-
-}
-
-// GetArtistCollection is a free data retrieval call binding the contract method 0xc11c065c.
-//
-// Solidity: function getArtistCollection(address _artistAddr) view returns(address)
-func (_Deployer *DeployerSession) GetArtistCollection(_artistAddr common.Address) (common.Address, error) {
-	return _Deployer.Contract.GetArtistCollection(&_Deployer.CallOpts, _artistAddr)
-}
-
-// GetArtistCollection is a free data retrieval call binding the contract method 0xc11c065c.
-//
-// Solidity: function getArtistCollection(address _artistAddr) view returns(address)
-func (_Deployer *DeployerCallerSession) GetArtistCollection(_artistAddr common.Address) (common.Address, error) {
-	return _Deployer.Contract.GetArtistCollection(&_Deployer.CallOpts, _artistAddr)
-}
-
-// GetCreator is a free data retrieval call binding the contract method 0x0ee2cb10.
-//
-// Solidity: function getCreator() view returns(address)
-func (_Deployer *DeployerCaller) GetCreator(opts *bind.CallOpts) (common.Address, error) {
-	var out []interface{}
-	err := _Deployer.contract.Call(opts, &out, "getCreator")
-
-	if err != nil {
-		return *new(common.Address), err
-	}
-
-	out0 := *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
-
-	return out0, err
-
-}
-
-// GetCreator is a free data retrieval call binding the contract method 0x0ee2cb10.
-//
-// Solidity: function getCreator() view returns(address)
-func (_Deployer *DeployerSession) GetCreator() (common.Address, error) {
-	return _Deployer.Contract.GetCreator(&_Deployer.CallOpts)
-}
-
-// GetCreator is a free data retrieval call binding the contract method 0x0ee2cb10.
-//
-// Solidity: function getCreator() view returns(address)
-func (_Deployer *DeployerCallerSession) GetCreator() (common.Address, error) {
-	return _Deployer.Contract.GetCreator(&_Deployer.CallOpts)
-}
-
 // GetOwner is a free data retrieval call binding the contract method 0x893d20e8.
 //
 // Solidity: function getOwner() view returns(address)
@@ -324,25 +262,46 @@ func (_Deployer *DeployerTransactorSession) Deploy(_collectionName string, _base
 	return _Deployer.Contract.Deploy(&_Deployer.TransactOpts, _collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency)
 }
 
-// ForceDeploy is a paid mutator transaction binding the contract method 0x50342a05.
+// SetBaseURIBatch is a paid mutator transaction binding the contract method 0xf138ad27.
 //
-// Solidity: function forceDeploy(string _collectionName, string _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) returns()
-func (_Deployer *DeployerTransactor) ForceDeploy(opts *bind.TransactOpts, _collectionName string, _baseURI string, _artistAddr common.Address, _royaltyBasisPoints *big.Int, _currency common.Address) (*types.Transaction, error) {
-	return _Deployer.contract.Transact(opts, "forceDeploy", _collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency)
+// Solidity: function setBaseURIBatch(address[] _artistAddrs, string[] _baseURIs) returns()
+func (_Deployer *DeployerTransactor) SetBaseURIBatch(opts *bind.TransactOpts, _artistAddrs []common.Address, _baseURIs []string) (*types.Transaction, error) {
+	return _Deployer.contract.Transact(opts, "setBaseURIBatch", _artistAddrs, _baseURIs)
 }
 
-// ForceDeploy is a paid mutator transaction binding the contract method 0x50342a05.
+// SetBaseURIBatch is a paid mutator transaction binding the contract method 0xf138ad27.
 //
-// Solidity: function forceDeploy(string _collectionName, string _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) returns()
-func (_Deployer *DeployerSession) ForceDeploy(_collectionName string, _baseURI string, _artistAddr common.Address, _royaltyBasisPoints *big.Int, _currency common.Address) (*types.Transaction, error) {
-	return _Deployer.Contract.ForceDeploy(&_Deployer.TransactOpts, _collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency)
+// Solidity: function setBaseURIBatch(address[] _artistAddrs, string[] _baseURIs) returns()
+func (_Deployer *DeployerSession) SetBaseURIBatch(_artistAddrs []common.Address, _baseURIs []string) (*types.Transaction, error) {
+	return _Deployer.Contract.SetBaseURIBatch(&_Deployer.TransactOpts, _artistAddrs, _baseURIs)
 }
 
-// ForceDeploy is a paid mutator transaction binding the contract method 0x50342a05.
+// SetBaseURIBatch is a paid mutator transaction binding the contract method 0xf138ad27.
 //
-// Solidity: function forceDeploy(string _collectionName, string _baseURI, address _artistAddr, uint256 _royaltyBasisPoints, address _currency) returns()
-func (_Deployer *DeployerTransactorSession) ForceDeploy(_collectionName string, _baseURI string, _artistAddr common.Address, _royaltyBasisPoints *big.Int, _currency common.Address) (*types.Transaction, error) {
-	return _Deployer.Contract.ForceDeploy(&_Deployer.TransactOpts, _collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency)
+// Solidity: function setBaseURIBatch(address[] _artistAddrs, string[] _baseURIs) returns()
+func (_Deployer *DeployerTransactorSession) SetBaseURIBatch(_artistAddrs []common.Address, _baseURIs []string) (*types.Transaction, error) {
+	return _Deployer.Contract.SetBaseURIBatch(&_Deployer.TransactOpts, _artistAddrs, _baseURIs)
+}
+
+// SetCurrencyBatch is a paid mutator transaction binding the contract method 0x7729c771.
+//
+// Solidity: function setCurrencyBatch(address[] _artistAddrs, address[] _currencies) returns()
+func (_Deployer *DeployerTransactor) SetCurrencyBatch(opts *bind.TransactOpts, _artistAddrs []common.Address, _currencies []common.Address) (*types.Transaction, error) {
+	return _Deployer.contract.Transact(opts, "setCurrencyBatch", _artistAddrs, _currencies)
+}
+
+// SetCurrencyBatch is a paid mutator transaction binding the contract method 0x7729c771.
+//
+// Solidity: function setCurrencyBatch(address[] _artistAddrs, address[] _currencies) returns()
+func (_Deployer *DeployerSession) SetCurrencyBatch(_artistAddrs []common.Address, _currencies []common.Address) (*types.Transaction, error) {
+	return _Deployer.Contract.SetCurrencyBatch(&_Deployer.TransactOpts, _artistAddrs, _currencies)
+}
+
+// SetCurrencyBatch is a paid mutator transaction binding the contract method 0x7729c771.
+//
+// Solidity: function setCurrencyBatch(address[] _artistAddrs, address[] _currencies) returns()
+func (_Deployer *DeployerTransactorSession) SetCurrencyBatch(_artistAddrs []common.Address, _currencies []common.Address) (*types.Transaction, error) {
+	return _Deployer.Contract.SetCurrencyBatch(&_Deployer.TransactOpts, _artistAddrs, _currencies)
 }
 
 // DeployerOwnershipTransferredIterator is returned from FilterOwnershipTransferred and is used to iterate over the raw logs and unpacked data for OwnershipTransferred events raised by the Deployer contract.

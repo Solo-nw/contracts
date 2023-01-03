@@ -129,7 +129,7 @@ module.exports = {
       // }
     }
   },
-  plugins: ['truffle-plugin-verify'],
+  plugins: ['truffle-plugin-verify', 'truffle-contract-size'],
   api_keys: {
     polygonscan: API_KEY,
   },

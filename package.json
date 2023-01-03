@@ -3,6 +3,7 @@
     "@0xsequence/erc-1155": "^3.2.4",
     "@truffle/hdwallet-provider": "^2.1.4",
     "dotenv": "^16.0.3",
+    "truffle-contract-size": "^2.0.1",
     "truffle-plugin-verify": "^0.6.1"
   }
 }

@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.7.4;
-pragma experimental ABIEncoderV2;
 
 import "./Artist.sol";
 import "./utils/OwnableSimple.sol";
@@ -24,12 +23,12 @@ contract Deployer is OwnableSimple {
         return address(artistOwnerMap[_artistAddr]);
     }
 
-    function setBaseURIBatch(address[] memory _artistAddrs, string[] memory _baseURIs) external onlyOwner {
-        require(_artistAddrs.length == _baseURIs.length, "Array lengths must match");
-        for (uint i = 0; i < _artistAddrs.length; i++) {
-            artistOwnerMap[_artistAddrs[i]].setBaseURI(_baseURIs[i]);
-        }
-    }
+    // function setBaseURIBatch(address[] memory _artistAddrs, string[] calldata _baseURIs) external onlyOwner {
+    //     require(_artistAddrs.length == _baseURIs.length, "Array lengths must match");
+    //     for (uint i = 0; i < _artistAddrs.length; i++) {
+    //         artistOwnerMap[_artistAddrs[i]].setBaseURI(_baseURIs[i]);
+    //     }
+    // }
 
     function setCurrencyBatch(address[] memory _artistAddrs, address[] memory _currencies) external onlyOwner {
         require(_artistAddrs.length == _currencies.length, "Array lengths must match");

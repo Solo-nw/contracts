@@ -19,12 +19,8 @@ contract Deployer is OwnableSimple {
         artistOwnerMap[_artistAddr] = new ArtistCollection(_collectionName, _baseURI, _artistAddr, _royaltyBasisPoints, _currency);
     }
 
-    function getAllCollection(address[] memory _artistAddrs) external view returns(address[] memory) {
-        address[] memory artistCollectionAddrs;
-        for (uint i = 0; i < _artistAddrs.length; i++) {
-            artistCollectionAddrs[i] = address(artistOwnerMap[_artistAddrs[i]]);
-        }
-        return artistCollectionAddrs;
+    function getCollection(address _artistAddr) external view returns(address) {
+        return address(artistOwnerMap[_artistAddr]);
     }
 
     function setBaseURIBatch(address[] memory _artistAddrs, string[] memory _baseURIs) external onlyOwner {
